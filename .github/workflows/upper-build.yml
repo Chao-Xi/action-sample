@@ -19,6 +19,11 @@ jobs:
         with:
           go-version: '1.22'
       - run: go version
+      - run: |
+          ls
+          go build
+          ls
+          go test
     # runs-on: self-hosted
     # steps:
     #   - run: pwd && ls -al
