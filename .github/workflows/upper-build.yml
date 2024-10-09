@@ -24,6 +24,7 @@ jobs:
           go build
           ls
           go test
+          ./upper foo the bar
     # runs-on: self-hosted
     # steps:
     #   - run: pwd && ls -al
