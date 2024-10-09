@@ -25,6 +25,7 @@ jobs:
           ls
           go test
           ./upper foo the bar
+        working-directory: upper
     # runs-on: self-hosted
     # steps:
     #   - run: pwd && ls -al
