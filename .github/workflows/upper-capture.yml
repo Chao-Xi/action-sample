@@ -9,7 +9,7 @@ on:
 
 jobs:
   capture:
-    runs-on: macos-latest
+    runs-on: macos-12
     defaults:
       run:
         working-directory: upper
