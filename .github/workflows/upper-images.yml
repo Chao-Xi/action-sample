@@ -26,7 +26,7 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }} # Chao-Xi
           password: ${{ secrets.GITHUB_TOKEN }}
-      - run: docker tag upper ghcr.io/Chao-Xi/upper:latest
-      - run: docker tag upper ghcr.io/Chao-Xi/upper:${{ github.ref_name }}
-      - run: docker push ghcr.io/Chao-Xi/upper:latest
-      - run: docker push ghcr.io/Chao-Xi/upper:${{ github.ref_name }}
+      - run: docker tag upper ghcr.io/chao-xi/upper:latest
+      - run: docker tag upper ghcr.io/chao-xi/upper:${{ github.ref_name }}
+      - run: docker push ghcr.io/chao-xi/upper:latest
+      - run: docker push ghcr.io/chao-xi/upper:${{ github.ref_name }}
