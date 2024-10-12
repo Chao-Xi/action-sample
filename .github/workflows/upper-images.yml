@@ -1,9 +1,9 @@
-name: upper-image
+name: upper-images
 
 on:
   push:
     paths:
-      - ".github/workflows/upper-image.yml"
+      - ".github/workflows/upper-images.yml"
       - "upper/**"
   workflow_dispatch: # manual
 
