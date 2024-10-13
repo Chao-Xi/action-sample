@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: generate
     steps:
-       - run: echo "{{ needs.generate.output.RANDOM_PASSWORD }}""
+       - run: echo "${{ needs.generate.output.RANDOM_PASSWORD }}""
 #     container:
 #       image: mysql:8.4
 #     services:
