@@ -1,0 +1,24 @@
+name: Deploy with specific client or server version（Rollback)
+
+on:
+  workflow_dispatch:
+    inputs:
+      clientversion:
+        description: 'Client Dev Version: vx.x.x or latest'
+        required: true
+        default: 'latest'
+        type: string
+      serverversion:
+        description: 'Server Dev Version: vx.x.x or latest'
+        required: true
+        default: 'latest'
+        type: string
+ 
+jobs:
+  print_input:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print input client and server version
+        run: |
+          echo ”Client version: ${{ github.event.inputs.clientversion }}"
+          echo "Server version: ${{ github.event.inputs.serverversion }}"
