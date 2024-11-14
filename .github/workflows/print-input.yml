@@ -20,5 +20,5 @@ jobs:
     steps:
       - name: print input client and server version
         run: |
-          echo ”Client version: ${{ github.event.inputs.clientversion }}"
+          echo "Client version: ${{ github.event.inputs.clientversion }}"
           echo "Server version: ${{ github.event.inputs.serverversion }}"
