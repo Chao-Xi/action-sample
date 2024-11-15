@@ -17,8 +17,11 @@ on:
 jobs:
   print_input:
     runs-on: ubuntu-latest
+    env:
+      CLIENT_VERSION: ${{ github.event.inputs.clientversion }}
+      SERVER_VERSION: ${{ github.event.inputs.serverversion }}
     steps:
       - name: print input client and server version
         run: |
-          echo "Client version: ${{ github.event.inputs.clientversion }}"
-          echo "Server version: ${{ github.event.inputs.serverversion }}"
+          echo "Client version: $CLIENT_VERSION"
+          echo "Server version: $SERVER_VERSION"
