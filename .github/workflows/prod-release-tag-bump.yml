@@ -21,11 +21,11 @@ jobs:
         fetch-depth: '0'
     
     - name: Bump Prod Release Version and Push tag
+      id: prod_tag_verison 
       uses: mathieudutour/github-tag-action@v6.2
-      id: prod_tag_verison  
       env:
         github_token: ${{ secrets.GITHUB_TOKEN }} # if you don't want to set write permissions use a PAT token
-        release_branches: master
+        release_branches: main
         # fetch_all_tags: true
         # DRY_RUN: true
         tag_prefix: r
