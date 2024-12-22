@@ -26,6 +26,7 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }} # if you don't want to set write permissions use a PAT token
         release_branches: main
+        default_bump: minor
         # fetch_all_tags: true
         # DRY_RUN: true
         tag_prefix: r
