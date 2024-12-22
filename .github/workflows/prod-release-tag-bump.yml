@@ -3,6 +3,7 @@ name: Add_prod_release_tag
 on:
 #   release:
 #     types: [published]
+  workflow_dispatch:
   push:
     branches:
       - master
