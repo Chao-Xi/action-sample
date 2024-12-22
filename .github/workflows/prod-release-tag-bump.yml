@@ -1,4 +1,4 @@
-name: Add_prod_release_tag
+name: Bump_prod_release_tag
 
 on:
 #   release:
@@ -33,5 +33,5 @@ jobs:
     - name: Check output
       id: outputbuild    
       env: 
-        RELEASE_VERSION: ${{ steps.prod_tag_verison.outputs.tag }}
+        RELEASE_VERSION: ${{ steps.prod_tag_verison.outputs.new_tag }}
       run: echo "latest_tag=$RELEASE_VERSION" >> $GITHUB_OUTPUT
