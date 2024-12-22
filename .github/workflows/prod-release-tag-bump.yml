@@ -1,0 +1,40 @@
+name: add_tags_to_client
+
+on:
+#   release:
+#     types: [published]
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+       latest_tag: ${{ steps.outputbuild.outputs.latest_tag }}
+    permissions:
+      contents: write
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: '0'
+    
+    - name: Bump Prod Release Version and Push tag
+      uses: anothrNick/github-tag-action@v1 
+      id: prod_tag_verison  
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # if you don't want to set write permissions use a PAT token
+        tag_prefix: release 
+        RELEASE_BRANCHES: master
+        # DRY_RUN: true
+        INITIAL_VERSION: r0.0.0
+        BRANCH_HISTORY: full
+    
+    # - name: Create a GitHub release
+    #   uses: ncipollo/release-action@v1
+
+    - name: Check output
+      id: outputbuild    
+      env: 
+        RELEASE_VERSION: ${{ steps.prebuild.outputs.tag }}
+      run: echo "latest_tag=$RELEASE_VERSION" >> $GITHUB_OUTPUT
