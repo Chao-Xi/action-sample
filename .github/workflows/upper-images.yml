@@ -48,5 +48,7 @@ jobs:
         uses: docker/scout-action@v1
         with:
           command: quickview
+          registry-user: ${{ github.repository_owner }}
+          registry-password: ${{ secrets.GITHUB_TOKEN }}
           image: ghcr.io/chao-xi/upper:latest
 
