@@ -30,3 +30,18 @@ jobs:
       - run: docker tag upper ghcr.io/chao-xi/upper:${{ github.ref_name }}
       - run: docker push ghcr.io/chao-xi/upper:latest
       - run: docker push ghcr.io/chao-xi/upper:${{ github.ref_name }}
+  
+  scan:
+    runs-on: ubuntu-latest
+    needs: image
+    steps:
+      - name: checkout 
+        uses: actions/checkout@v4
+        with:
+          ref: 'master'
+      - name: Docker Scout Quickview and CVEs
+        uses: docker/scout-action@v1
+        with:
+          command: quickview,cves
+          image: ghcr.io/chao-xi/upper:latest
+
