@@ -10,11 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     
     env:
-      release_tag: ${{ github.event.inputs.version }}
+      RELEASE_TAG: ${{ github.event.release.tag_name }}
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Get release tag name
-        run: echo "The release tag is $release_tag"
+        run: echo "The release tag is $RELEASE_TAG"
