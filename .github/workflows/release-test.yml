@@ -43,13 +43,23 @@ jobs:
         run: |
           if [ -z "$RELEASE_TAG" ] && [ -n "$INPUT_TAG" ]; then
             echo "release tag version: $INPUT_TAG"
+            echo "PROD_TAG=$INPUT_TAG" >> $GITHUB_ENV
           elif [ -n "$RELEASE_TAG" ] && [ -z "$INPUT_TAG" ]; then
             echo "release tag version: $RELEASE_TAG"
+            echo "PROD_TAG=$RELEASE_TAG" >> $GITHUB_ENV  
           else
             echo "No Avaiable release tag version"
             exit 1
           fi
+      
+      - name: Get PROD Release Tag Version
+        run: |
+          echo "The PROD Release Tag Version is: $PROD_TAG"
 
+            
+
+
+          
         
 
       
