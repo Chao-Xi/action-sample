@@ -8,13 +8,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    
     env:
-      RELEASE_VERSION: ${{ github.event.inputs.version }}
+      release_tag: ${{ github.event.inputs.version }}
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Get release tag name
-        run: echo "The release tag is ${{ RELEASE_VERSION }}"
+        run: echo "The release tag is $release_tag"
