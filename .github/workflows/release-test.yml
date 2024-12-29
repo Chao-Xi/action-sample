@@ -23,7 +23,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Get release tag name
+      - name: Get release tag version
         run: |
           if [ -z "$RELEASE_TAG" ]; then
             echo "The release tag variale is empty"
@@ -39,11 +39,18 @@ jobs:
             echo "The manual input tag is: $INPUT_TAG"
           fi
 
+      - name: Assign release tag version
+        run: |
+          if [ -z "$RELEASE_TAG" ] && [ -n "$INPUT_TAG" ]; then
+            echo "release tag version: $INPUT_TAG"
+          elif if [ -n "$RELEASE_TAG" ] && [ -z "$INPUT_TAG" ]; then
+            echo "release tag version: $RELEASE_TAG"
+          else
+            echo "No Avaiable release tag version"
+            exit 1
+          fi
+
         
-          
-          
-          
-          echo "The input release version is $INPUT_TAG"
 
       
         
