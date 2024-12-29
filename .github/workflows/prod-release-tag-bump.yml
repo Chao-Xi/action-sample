@@ -1,10 +1,11 @@
 name: Bump_prod_release_tag
 
 on:
-#   release:
-#     types: [published]
   workflow_dispatch:
   push:
+    paths:
+     - 'README.md'
+     - ".github/workflows/prod-release-tag-bump.yml"
     branches:
       - master
 
@@ -28,7 +29,7 @@ jobs:
         release_branches: main
         # default_bump: major
         default_bump: minor
-        tag_prefix: R
+        tag_prefix: v
 
     - name: Check output
       id: outputbuild    
