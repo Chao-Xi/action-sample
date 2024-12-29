@@ -24,8 +24,15 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Get release tag name
-        run: echo "The release tag is $RELEASE_TAG"
+        run: |
+          if [ -z "$RELEASE_TAG" ]; then
+            echo "The release tag variale is empty"
+          else
+            echo "The release tag is: $RELEASE_TAG"
+          fi
 
       - name: Get input release tag version
         run: echo "The input release version is $INPUT_TAG"
+
+      
         
