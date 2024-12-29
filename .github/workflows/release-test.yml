@@ -23,29 +23,33 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Get release tag version
-        run: |
-          if [ -z "$RELEASE_TAG" ]; then
-            echo "The release tag variale is empty"
-          else
-            echo "The release tag is: $RELEASE_TAG"
-          fi
+      # - name: Get release tag version
+      #   run: |
+      #     if [ -z "$RELEASE_TAG" ]; then
+      #       echo "The release tag variale is empty"
+      #     else
+      #       echo "The release tag is: $RELEASE_TAG"
+      #     fi
 
-      - name: Get input release tag version
-        run: |
-          if [ -z "$INPUT_TAG" ]; then
-            echo "The manual input tag variale is empty"
-          else
-            echo "The manual input tag is: $INPUT_TAG"
-          fi
+      # - name: Get input release tag version
+      #   run: |
+      #     if [ -z "$INPUT_TAG" ]; then
+      #       echo "The manual input tag variale is empty"
+      #     else
+      #       echo "The manual input tag is: $INPUT_TAG"
+      #     fi
 
       - name: Assign release tag version
         run: |
           if [ -z "$RELEASE_TAG" ] && [ -n "$INPUT_TAG" ]; then
             echo "release tag version: $INPUT_TAG"
+            echo
+            echo "The release tag variale is empty"
             echo "PROD_TAG=$INPUT_TAG" >> $GITHUB_ENV
           elif [ -n "$RELEASE_TAG" ] && [ -z "$INPUT_TAG" ]; then
-            echo "release tag version: $RELEASE_TAG"
+            echo "release tag version: $RELEASE_TAG"    
+            echo 
+            echo "The manual input tag variale is empty"
             echo "PROD_TAG=$RELEASE_TAG" >> $GITHUB_ENV  
           else
             echo "No Avaiable release tag version"
