@@ -3,7 +3,13 @@ name: Release Workflow
 on:
   release:
     types: [published]
-  # workflow_dispatch: # manual
+  workflow_dispatch: # manual
+    inputs:
+      release_version:
+        required: true
+        default: 'latest'
+        type: string
+
 
 jobs:
   build:
@@ -11,6 +17,7 @@ jobs:
     
     env:
       RELEASE_TAG: ${{ github.event.release.tag_name }}
+      INPUT_TAG: ${{ github.event.inputs.release_version }}
 
     steps:
       - name: Checkout code
@@ -18,3 +25,7 @@ jobs:
 
       - name: Get release tag name
         run: echo "The release tag is $RELEASE_TAG"
+
+      - name: Get input release tag version
+        run: echo "The input release version is $INPUT_TAG"
+        
