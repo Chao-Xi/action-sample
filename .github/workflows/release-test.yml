@@ -43,7 +43,7 @@ jobs:
         run: |
           if [ -z "$RELEASE_TAG" ] && [ -n "$INPUT_TAG" ]; then
             echo "release tag version: $INPUT_TAG"
-          elif if [ -n "$RELEASE_TAG" ] && [ -z "$INPUT_TAG" ]; then
+          elif [ -n "$RELEASE_TAG" ] && [ -z "$INPUT_TAG" ]; then
             echo "release tag version: $RELEASE_TAG"
           else
             echo "No Avaiable release tag version"
