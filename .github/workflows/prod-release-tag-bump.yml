@@ -7,7 +7,7 @@ on:
      - 'README.md'
      - ".github/workflows/prod-release-tag-bump.yml"
     branches:
-      - master
+      - main
 
 jobs:
   Add_prod_release_tag:
