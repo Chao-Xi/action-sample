@@ -32,7 +32,18 @@ jobs:
           fi
 
       - name: Get input release tag version
-        run: echo "The input release version is $INPUT_TAG"
+        run: |
+          if [ -z "$INPUT_TAG" ]; then
+            echo "The manual input tag variale is empty"
+          else
+            echo "The manual input tag is: $INPUT_TAG"
+          fi
+
+        
+          
+          
+          
+          echo "The input release version is $INPUT_TAG"
 
       
         
